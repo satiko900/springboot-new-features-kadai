@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<div th:replace="~{fragment :: meta}"></div>   
+              
+        <div th:replace="~{fragment :: styles}"></div>
+           
+        <title>レビュー一覧</title>   
+    </head>
+    <body>
+		<div class="samuraitravel-wrapper">
+             <!-- ヘッダー -->
+             <div th:replace="~{fragment :: header}"></div>
+             
+             <main>
+                 <div class="container samuraitravel-container pb-5">
+                     <div class="row justify-content-center">
+                         <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                             <ol class="breadcrumb mb-0">                        
+                                 <li class="breadcrumb-item"><a th:href="@{/}">ホーム</a></li>
+                                 <li class="breadcrumb-item"><a th:href="@{/}">民宿一覧</a></li>
+                                 <li class="breadcrumb-item"><a th:href="@{/}">民宿詳細</a><li>
+                                 <li class="breadcrumb-item active" aria-current="page">レビュー一覧</li>
+                             </ol>
+                         </nav>
+                         
+                         <h1 class="mb-4 text-center" th:text="${house.getName()} + 'のレビュー一覧'"></h1>   
+                         
+                         <!-- レビュー一覧の表示 -->
+                         <div class="d-flex flex-wrap justify-content-center">
+    					 <div th:each="review : ${reviewPage.content}" class="col-lg-5 m-2 samurai-border p-4">
+							 <div>
+								  <h1 th:text="${review.getUser().getName()}"></h1>
+           						  <h7 th:text="${review.getEvaluation()}" style="color: #ffcc00;"></h7>
+                                  <br><h7 th:text="${#dates.format(review.getUpdatedAt(), 'yyyy-MM-dd')}" style="color: #5196a6;"></h7>
+                                  <h5 th:text="${review.getDescription()}" class="pt-4"></h5>
+                             </div>
+                         </div>
+                         </div>
+                         
+                         <!-- ページネーション -->
+                         <div th:if="${reviewPage.totalPages > 1}" class="d-flex justify-content-center">
+							 <nav aria-label="レビュー一覧ページ">
+								 <ul class="pagination">
+									 <li class="page-item">
+										 <span th:if="${reviewPage.first}" class="page-link disabled">前</span>
+                                         <a th:unless="${reviewPage.first}" th:href="@{/reviews/__${house.getId()}__(page=${reviewPage.number - 1})}" class="page-link samuraitravel-page-link">前</a>
+                                     </li>
+                                     <li th:each="i : ${#numbers.sequence(0, reviewPage.totalPages - 1)}" class="page-item">
+                                         <span th:if="${reviewPage.number == i}" class="page-link active samuraitravel-active" th:text="${i + 1}"></span>
+                                         <a th:unless="${reviewPage.number == i}" th:href="@{/reviews/__${house.getId()}__(page=${i})}" class="page-link samuraitravel-page-link" th:text="${i + 1}"></a>
+                                     </li>
+                                     <li class="page-item">                        
+                                         <span th:if="${reviewPage.last}" class="page-link disabled">次</span>
+                                         <a th:unless="${reviewPage.last}" th:href="@{/reviews/__${house.getId()}__(page=${reviewPage.number + 1})}" class="page-link samuraitravel-page-link">次</a>
+                                     </li>
+                                 </ul>
+                             </nav> 
+                          </div>
+                      </div>
+                 </div>
+             </main> 
+            	 
+             <!-- フッター -->
+             <div th:replace="~{fragment :: footer}"></div>
+         </div>    
+         
+         <div th:replace="~{fragment :: scripts}"></div>
+         
+         <!-- Flatpickr -->
+         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+         <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+         <script th:src="@{/js/flatpickr.js}"></script>
+           
+     </body>
+ </html>
+
+                             
