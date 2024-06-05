@@ -82,7 +82,8 @@ public class HouseController {
         House house = houseRepository.getReferenceById(id);
         Page<Review> reviewPage = reviewRepository.findByHouseId(id, pageable);
         List<Review> reviews = reviewRepository.findByHouseId(id);
-       
+        
+        
         model.addAttribute("house", house);  
         model.addAttribute("reservationInputForm", new ReservationInputForm());
         model.addAttribute("reviewPage", reviewPage);
@@ -91,7 +92,11 @@ public class HouseController {
         if (userDetailsImpl != null) {
             Integer myId = userDetailsImpl.getUser().getId();
             model.addAttribute("myId", myId);
+            
+            Review myreview = reviewRepository.findByHouseIdAndUserId(id, myId);
+            model.addAttribute("myreview", myreview);
         }
+        
      
         return "houses/show";
     } 

@@ -12,4 +12,5 @@ import com.example.samuraitravel.entity.Review;
 public interface ReviewRepository extends JpaRepository<Review, Integer>{
 	Page<Review> findByHouseId(Integer house, Pageable pageable);
 	List<Review> findByHouseId(Integer house);
+	Review findByHouseIdAndUserId(Integer houseId, Integer userId);
 }

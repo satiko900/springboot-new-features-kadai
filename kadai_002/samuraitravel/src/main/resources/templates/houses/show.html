@@ -155,7 +155,9 @@
                                   </div> 
                                  
                                   <div sec:authorize="isAuthenticated()" class="mb-4 text-center">
-									  <a th:href="@{/reviews/__${house.getId()}__/post}" class="btn text-white shadow-sm w-40 samuraitravel-btn">レビューを投稿する</a>
+									  <div th:unless="${myreview}">
+										  <a th:href="@{/reviews/__${house.getId()}__/post}" class="btn text-white shadow-sm w-40 samuraitravel-btn">レビューを投稿する</a>
+							          </div>
 							      </div>
                                   
                                   <!-- レビューの表示 -->

@@ -89,17 +89,16 @@ INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_d
 INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_date, number_of_people, amount) VALUES (11, 11, 1, '2023-04-01', '2023-04-02', 2, 6000);
 
 -- reviewsテーブル
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (1, 1, 1, '★★★☆☆', '部屋が綺麗で、快適に過ごせました。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (2, 1, 2, '★★★★☆', 'サービスが充実してました。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (3, 1, 3, '★★★★★', 'スタッフさんの対応が丁寧でした。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (4, 1, 4, '★★★★☆', '食事がおいしかったです。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (5, 1, 5, '★★★★★', '利用して良かったです。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (6, 1, 6, '★★★☆☆', 'アメニティが充実してます。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (7, 1, 7, '★★★☆☆', '清潔です。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (8, 1, 8, '★★☆☆☆', '普通のホテルです。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (9, 1, 9, '★★★☆☆', '駅から近く、便利です。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (10,1, 10, '★★★★☆', '安いのに綺麗で、良いホテルです。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (11,1, 11, '★★★☆☆', 'Wi-Fiが速くて快適でした。');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (12, 1, 1, '★★★☆☆', 'また利用させていただきました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (1, 1, 2, '★★★☆☆', '部屋が綺麗で、快適に過ごせました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (2, 1, 3, '★★★★☆', 'サービスが充実してました。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (3, 1, 4, '★★★★★', 'スタッフさんの対応が丁寧でした。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (4, 1, 5, '★★★★☆', '食事がおいしかったです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (5, 1, 6, '★★★★★', '利用して良かったです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (6, 1, 7, '★★★☆☆', 'アメニティが充実してます。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (7, 1, 8, '★★★☆☆', '清潔です。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (8, 1, 9, '★★☆☆☆', '普通のホテルです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (9, 1, 10, '★★★☆☆', '駅から近く、便利です。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (10,1, 11, '★★★★☆', '安いのに綺麗で、良いホテルです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (11,1, 1, '★★★☆☆', 'Wi-Fiが速くて快適でした。');
 INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (13, 2, 1, '★★★☆☆', 'ここもいいね！');
-INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (14, 1, 2, '★★★☆☆', '良いところです。');
+INSERT IGNORE INTO reviews (id, house_id, user_id, evaluation, description) VALUES (14, 1, 12, '★★★☆☆', '綺麗なところです。');
