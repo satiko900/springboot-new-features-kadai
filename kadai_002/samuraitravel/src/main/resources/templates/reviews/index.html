@@ -27,14 +27,38 @@
                          <h1 class="mb-4 text-center" th:text="${house.getName()} + 'のレビュー一覧'"></h1>   
                          
                          <!-- レビュー一覧の表示 -->
-                         <div class="d-flex flex-wrap justify-content-center">
+                         <div  th:if="${reviewPage}" class="d-flex flex-wrap justify-content-center">
     					 <div th:each="review : ${reviewPage.content}" class="col-lg-5 m-2 samurai-border p-4">
-							 <div>
+							 <div class="d-flex justify-content-between">
 								  <h1 th:text="${review.getUser().getName()}"></h1>
+								  
+								  <div th:if = "${review.getUser().getId() == myId}">
+												  <h8><a th:href="@{/reviews/__${house.getId()}__/__${review.getId()}__/edit}" class="ml-4">編集</a></h8>
+												  <h8><a href="#" class="samuraitravel-link-danger" data-bs-toggle="modal" th:data-bs-target="${'#deleteReviewModal' + review.getId()}">削除</a></h8>
+												  
+												  <!-- 削除用モーダル --> 
+												  <div class="modal fade" th:id="${'deleteReviewModal' + review.getId()}" tabindex="-1" th:aria-labelledby="${'deleteReviewModalLabel' + review.getId()}">
+													  <div class="modal-dialog">
+														 <div class="modal-content">
+															 <div class="modal-header">
+																 <h5 class="modal-title" th:id="${'deleteReviewModalLabel' + review.getId()}">このレビューを削除してよろしいですか？</h5>
+																 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+                                                             </div>
+                                                             <div class="modal-footer">
+																 <form method="post"th:action="@{/reviews/__${house.getId()}__/__${review.getId()}__/delete}">
+																	 <button type="submit" class="btn samuraitravel-btn-danger text-white shadow-sm">削除</button>
+                                                                 </form>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div> 
+                                  </div> 
+                              </div>           
+								  
            						  <h7 th:text="${review.getEvaluation()}" style="color: #ffcc00;"></h7>
                                   <br><h7 th:text="${#dates.format(review.getUpdatedAt(), 'yyyy-MM-dd')}" style="color: #5196a6;"></h7>
                                   <h5 th:text="${review.getDescription()}" class="pt-4"></h5>
-                             </div>
+                             
                          </div>
                          </div>
                          
